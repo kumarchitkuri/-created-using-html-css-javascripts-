@@ -1,0 +1,652 @@
+this # -created-using-html-css-javascripts-
+Different types programming like number, arrays and Strings. if we give any number based on the given condition it will give a output
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>serv</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: rgba(240, 248, 255, 0.186);
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+        }
+        header{
+            height: 50px;
+           font-size: 30px;
+            color: rgb(255, 255, 255);
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav{
+            background-color:rgba(88, 88, 88, 0.206);
+            color: rgb(0, 0, 0);
+            font-family: Georgia, Times, 'Times New Roman', serif;
+            width: 100%;
+            height: 40px;
+            display:flex;
+            justify-content:left;
+            align-items: center;
+        }
+        nav a{
+            font-size: 25px;
+            text-decoration: none;
+            float: right;
+            margin-right: 50px;
+        }
+        nav a::first-letter{
+            color: darkred;
+            font-style: oblique;
+        }
+        nav a:hover{
+           background-color:rgba(0, 128, 0, 0.645);
+        }
+        nav a:visited{
+           background-color: #000000d1;
+        }
+        nav a:active{
+           background-color:red;
+        }
+        /* .closebtn,.closebtn1,.closebtn2{
+            text-decoration: none;
+            font-size: x-large;
+        } */
+        .numbers, .arrays, .strings{
+            display: none;
+            cursor: pointer;
+            background-color: #000000;
+           position: fixed;
+            width:17%;
+            height: 100%;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            overflow-x:hidden; 
+            transition: 0.1s;
+            padding-top: 10px; 
+            
+        }
+        .numbers a,.arrays a,.strings a{
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #818181;
+            transition: 0.3s;
+            padding: 15px;
+            top: 30px;
+            
+        }
+        .numbers a:hover,.arrays a:hover,.strings a:hover{
+          color: #ffffff;
+        }
+         .numbers .closebtn,.arrays .closebtn1,.strings .closebtn2{
+           float: right; 
+           position: absolute;
+           text-decoration: none;
+           top: 0;
+          right: 25px;
+          font-size: 36px;  
+        } 
+        /* .even,.odd,.prime,.Rev{
+            display: none;
+            padding: 10px;
+        } */
+        /* .evencode,.oddcode,.primecode{
+            display: none;
+            padding: 10px;
+            color: red;
+        } */
+        .even,.odd,.prime,.Rev,.pan{
+            display: none;
+                width: 35%;
+                height:400px;
+                border: 1px solid rgba(0, 0, 0, 0);
+                float: left;
+                margin-left: 10%;
+                border-radius: 10px;
+                 margin-top: 55px;
+                box-shadow: 1px 1px 15px 1px;
+                padding:10px;
+        }
+        .even:hover{
+            border-color: rgb(251, 0, 0);
+        }
+       
+        .evencode,.oddcode,.primecode,.revcode,.pancode{
+            padding:10px;
+            box-shadow: 1px 1px 15px 1px;
+            display: none;
+                width: 35%;
+                height:400px;
+                float: left;
+                margin-left: 15px;
+                overflow-x: scroll;
+                border-radius: 10px;
+                background-color: black;
+                color:white;
+                margin-top: 55px;
+        }
+        p{
+            font-size:20px;
+            font-weight: bold;
+        }
+        .Submit,.Submit1,.Submit2,.Submit3,.Submit6{
+            font-size: large;
+        }
+        .Submit:hover,.Submit1:hover,.Submit2:hover,.Submit3:hover,.Submit6:hover{
+            background-color: azure;
+        }
+        .code,.code1,.code2,.code3,.code6{
+            float: right;
+            font-size: large;
+        }
+        .code:hover,.code1:hover,.code2:hover,.code3:hover,.code6:hover{
+            background-color: azure;
+        }
+        label{
+            font-size:x-large;
+        }
+        input:hover{
+            border-color: rgb(97, 86, 86);
+        }
+        span{
+            font-weight: 500;
+        }
+        #container{
+            transition: margin-left 0.1s;
+            padding: 6px;
+        }
+        
+        @media screen and (max-width:1200px){
+            .even,.odd,.prime,.Rev,.pan {
+                    width: 80%;
+            }
+            .evencode,.oddcode,.primecode,.revcode,.pancode{
+                width: 80%;  
+                margin-left: 100px;
+            }
+       }
+       @media screen and (max-width:500px){
+            .even,.odd,.prime,.Rev,.pan {
+                    width: 80%;
+            }
+            .evencode,.oddcode,.primecode,.revcode,.pancode{
+                width: 80%;  
+                margin-left: 40px;
+            }
+       }
+       @media screen and (max-width:900px){
+            .even,.odd,.prime,.Rev,.pan {
+                    width: 80%;
+            }
+            .evencode,.oddcode,.primecode,.revcode,.pancode{
+                width: 80%;  
+                margin-left: 60px;
+            }
+       }
+     
+    </style>
+</head>
+<body>
+    <div id="container">
+            <header>Programming!!</header>
+            <nav>
+                <a onclick="Numbers()">Numbers</a>
+                <a onclick="Arrays()">Arrays</a>
+                <a onclick="Strings()">Strings</a>
+            </nav>
+        <div id="aside">
+                <div id="Numbers" class="numbers">
+                    <button href="javascript:void(0)" class="closebtn" onclick="closeNum()">×</button><br><br>
+                    <a onclick="Even()">Even</a>
+                    <a onclick="Odd()">Odd</a>
+                    <a  onclick="Prime()">Prime</a>
+                </div>
+                <div id="Arrays" class="arrays">
+                    <a href="javascript:void(0)" class="closebtn1" onclick="closearr()">×</a><br><br>
+                    <a onclick="Reverese()">Reverese a Array </a>
+                    <a onclick="Freequency()">Freequency a Array</a>
+                    <a  onclick="Duplicates()">Duplicates a Array</a>
+                </div>
+                <div id="Strings" class="strings">
+                    <a href="javascript:void(0)" class="closebtn2" onclick="closestr()">×</a><br><br>
+                    <a onclick="validation()">validation</a>
+                    <a onclick="Searching()">Searching</a>
+                    <a  onclick="UniqueWords()">Unique Words</a>
+                </div>
+        </div>
+        <div class="section">
+                <!-- Numbers  -->
+                <div id="EvenNumber" class="even">
+                    <h1>Even Number:</h1>
+                    <label>Enter a Number:</label>
+                    <input Id="value" type="numbers"><br><br><br>
+                    <button class="Submit" onclick="Submit()">Submit</button>
+                    <p><span>OutPut:</span> <h7 id="Result"></h7></p>
+                    <button class="code" onclick="code()">Code</button>
+                </div>
+                <div id="OddNumber" class="odd">
+                    <h1>Odd Number:</h1>
+                    <label>Enter a Number:</label>
+                    <input  Id="value1" type="numbers"><br><br><br>
+                    <button class="Submit1" onclick="Submit1()">Submit</button>
+                    <p><span>OutPut:</span> <h7 id="Result1"></h7></p>
+                    <button class="code1" onclick="code1()">Code</button>
+                </div>
+                <div id="Prime" class="prime">
+                    <h1>Prime Number:</h1>
+                    <label>Enter a Number:</label>
+                    <input  Id="value2" type="numbers"><br><br><br>
+                    <button class="Submit2" onclick="Submit2()">Submit</button>
+                    <p><span>OutPut:</span> <h7 id="Result2"></h7></p>
+                    <button class="code2"  onclick="code2()">Code</button>
+                </div>
+
+
+                     <!-- Strings -->
+                <div id="RevereseArray" class="Rev">
+                  <h1>Reverese a Array:</h1>
+                  <label>Enter a Array Numbers:</label>
+                  <input  Id="value3" type="numbers" placeholder="Enter values with commas.."><br><br><br>
+                  <button class="Submit3" onclick="Submit3()">Submit</button>
+                  <p><span>OutPut:</span> <h7 id="Result3"></h7></p> 
+                  <button class="code3" onclick="code3()">Code</button>
+              </div>
+              <div id="Pancard" class="pan">
+                <h1>Pancard Validation:</h1>
+                <label>Enter a 10 digit Pan Number:</label>
+                <input  Id="value6" type="numbers" ><br><br><br>
+                <button class="Submit6" onclick="Submit6()">Submit</button>
+                <p><span>OutPut:</span> <h7 id="Result6"></h7></p> 
+                <button class="code6" onclick="code6()">Code</button>
+            </div>
+        </div>
+        <div class="aside1">
+        <div id="Evencode" class="evencode">
+        
+<pre>let a=document.getElementById("value").value;
+if(a==''||a==null)
+{
+    alert("field is Required");
+}
+else
+{
+    if(a%2==0)
+    {
+        document.getElementById("Result").innerHTML=a+"is a Even Number";
+    }
+    else{
+        document.getElementById("Result").innerHTML=a+"is a  Not Even Number";
+    }
+}</pre>
+</div>
+        <div id="Oddcode" class="oddcode">
+<pre> let a=document.getElementById("value1").value;
+if(a==''||a==null)
+{
+    alert("field is Required");
+}
+else
+{
+    if(a%2==1)
+    {
+         document.getElementById("Result1").innerHTML=a+"is a Odd Number";
+    }
+    else{
+        document.getElementById("Result1").innerHTML=a+"is a  Not Odd Number";
+    }
+}
+</pre>
+</div>
+        
+<div id="Reveresecode" class="revcode">
+               
+<pre>let a=document.getElementById("value2").value;
+if(a==''||a==null)
+{
+    alert("field is Required");
+}
+else
+{
+    let a=document.getElementById("value3");
+        const b=a.value;
+        const c = b.split(",").map(item => parseInt(item.trim()));
+        const d=c.reverse();
+        document.getElementById("Result3").innerText=d;
+}</pre>
+
+</div>
+<div id="Pancode" class="pancode">
+               
+<pre>let a=document.getElementById("value6");
+const b=a.value;
+if(b==''||b==null)
+{
+alert("field is Required");
+}
+else
+{
+let a=document.getElementById("value6").value;
+let d=a.toUpperCase();
+const b = d.length;
+let c = 0;
+const chars = d.split(""); 
+
+for (let i = 0; i < b; i++) 
+{
+if (i == 0 || i == 1 || i == 2 || i == 4 || i == 9) 
+{
+    if ((chars[i] >= 'A' && chars[i] <= 'Z') || (chars[i] >= 'a' && chars[i] <= 'z')) 
+    {
+    c++;
+    }
+    
+} 
+else if (i == 3) {
+    if (chars[i] == 'P' || chars[i] == 'A' || chars[i] == 'H' || chars[i] == 'T' || chars[i] == 'C' || chars[i] == 'F') {
+    c++;
+    }
+
+} 
+else {
+
+    if (chars[i] >= 0 && chars[i] <= 9 ) {
+    c++;
+
+    }
+}
+}
+if (c == b) {
+    document.getElementById("Result6").innerHTML=d+" is a Valid PAN";
+} else {
+    document.getElementById("Result6").innerHTML=d+" is Not a Valid PAN";
+}
+}  </pre>
+    
+    </div>
+</div>
+        </div>  <!--container -->
+   
+    <script>
+       function Numbers(){
+        document.getElementById("Numbers").style.display="block";
+        document.getElementById("Arrays").style.display="none";
+        document.getElementById("Strings").style.display="none";
+        document.getElementById("container").style.marginLeft = "17%";
+       }
+       function Arrays(){
+        document.getElementById("Numbers").style.display="none";
+        document.getElementById("Arrays").style.display="block";
+        document.getElementById("Strings").style.display="none";
+        document.getElementById("container").style.marginLeft = "17%";
+       }
+    
+       function  Strings(){
+        document.getElementById("Numbers").style.display="none";
+        document.getElementById("Arrays").style.display="none";
+        document.getElementById("Strings").style.display="block";
+        document.getElementById("container").style.marginLeft = "17%";
+       }
+
+
+       function closeNum(){
+            document.getElementById("Numbers").style.display="none";
+            document.getElementById("container").style.marginLeft = "0";
+       }
+       function closearr(){
+            document.getElementById("Arrays").style.display="none";
+            document.getElementById("container").style.marginLeft = "0";
+       }
+       function closestr(){
+            document.getElementById("Strings").style.display="none";
+            document.getElementById("container").style.marginLeft = "0";
+       }
+
+
+       //NUmbers
+       function Even(){
+        document.getElementById("EvenNumber").style.display="block";
+        document.getElementById("OddNumber").style.display="none";
+        document.getElementById("Prime").style.display="none";
+        document.getElementById("RevereseArray").style.display="none";
+       }
+       function Odd(){
+        document.getElementById("EvenNumber").style.display="none";
+        document.getElementById("OddNumber").style.display="block";
+        document.getElementById("Prime").style.display="none";
+        document.getElementById("RevereseArray").style.display="none";
+       }
+       function Prime(){
+        document.getElementById("EvenNumber").style.display="none";
+        document.getElementById("OddNumber").style.display="none";
+        document.getElementById("Prime").style.display="block";
+        document.getElementById("RevereseArray").style.display="none";
+       }
+
+       //Arrays 
+       function Reverese(){
+        document.getElementById("RevereseArray").style.display="block";
+        document.getElementById("EvenNumber").style.display="none";
+        document.getElementById("OddNumber").style.display="none";
+        document.getElementById("Prime").style.display="none";
+       }
+    //    function Freequency(){
+    //     document.getElementById("RevereseArray").style.display="block";
+    //     document.getElementById("OddNumber").style.display="none";
+    //     document.getElementById("Prime").style.display="none";
+    //    }
+
+        //Strings
+        function validation(){
+            document.getElementById("Pancard").style.display="block";
+            document.getElementById("EvenNumber").style.display="none";
+            document.getElementById("OddNumber").style.display="none";
+            document.getElementById("Prime").style.display="none";
+            document.getElementById("RevereseArray").style.display="none";
+       }
+       //numbers solution
+      function Submit(){
+        let a=document.getElementById("value").value;
+        if(a==''||a==null)
+        {
+            alert("field is Required");
+        }
+        else
+        {
+            if(a%2==0)
+            {
+                document.getElementById("Result").innerHTML=a+" is a Even Number";
+            }
+            else{
+                document.getElementById("Result").innerHTML=a+" is a  Not Even Number";
+            }
+        }
+      }
+      function Submit1(){
+        let a=document.getElementById("value1").value;
+        if(a==''||a==null)
+        {
+            alert("field is Required");
+        }
+        else
+        {
+            if(a%2==1)
+            {
+                document.getElementById("Result1").innerHTML=a+" is a Odd Number";
+            }
+            else{
+                document.getElementById("Result1").innerHTML=a+" is a  Not Odd Number";
+            }
+        }
+      }
+      function Submit2(){
+        let a=document.getElementById("value2").value;
+        if(a==''||a==null)
+        {
+            alert("field is Required");
+        }
+        else
+        {
+            let c=0;
+            for(let i=1;i<=a;i++)
+            {
+                if(a%i==0)
+                c++;
+            }
+            if(c==2)
+            {
+                document.getElementById("Result2").innerHTML=a+" s a Prime Number";
+            }
+            else{
+                document.getElementById("Result2").innerHTML=a+" is a  Not Prime Number";
+            }
+        }
+      }
+      
+      // Arrays solution
+       function  Submit3()
+       {
+            let a=document.getElementById("value3");
+            const b=a.value;
+            if(b==''||b==null)
+            {
+                alert("field is Required");
+            }
+            else
+            {
+            const c = b.split(",").map(item => parseInt(item.trim()));
+            const d=c.reverse();
+            document.getElementById("Result3").innerText=d+"  ";
+        }
+    }
+        
+          // function  Submit4()
+          // {
+          //   let a=document.getElementById("value3");
+          //   let b=a.value.split('');
+          //   for(let i=0;i<b.length;i++)
+          //   {
+          //         let c=1;
+          //       for(let j=i+1;j<b.length;j++)
+          //       {
+          //         if(b[i].equals(b[j]))
+          //           c++;
+          //       }
+          //       let d=0;
+          //       for(let j=0;j<b.length;j++)
+          //       {
+          //         if(b[i].equals(b[j]))
+          //           d++;
+          //       }
+          //       if(d==0)
+          //       {
+          //         document.getElementById("Result3").innerHTML=b[i]+" "+c;
+          //       }
+
+          //   }
+          // }
+      
+        // Strings solution
+        function  Submit6()
+       {
+            let a=document.getElementById("value6");
+            const b=a.value;
+            if(b==''||b==null)
+            {
+                alert("field is Required");
+            }
+            else
+            {
+                let a=document.getElementById("value6").value;
+                let d=a.toUpperCase();
+                const b = d.length;
+                let c = 0;
+                const chars = d.split(""); 
+
+                for (let i = 0; i < b; i++) 
+                {
+                if (i == 0 || i == 1 || i == 2 || i == 4 || i == 9) 
+                {
+                    if ((chars[i] >= 'A' && chars[i] <= 'Z') || (chars[i] >= 'a' && chars[i] <= 'z')) 
+                    {
+                    c++;
+                    }
+                    
+                } 
+                else if (i == 3) {
+                    if (chars[i] == 'P' || chars[i] == 'A' || chars[i] == 'H' || chars[i] == 'T' || chars[i] == 'C' || chars[i] == 'F') {
+                    c++;
+                    }
+                
+                } 
+                else {
+
+                    if (chars[i] >= 0 && chars[i] <= 9 ) {
+                    c++;
+
+                    }
+                }
+                }
+                if (c == b) {
+                    document.getElementById("Result6").innerHTML=d+" is a Valid PAN";
+                } else {
+                    document.getElementById("Result6").innerHTML=d+" is Not a Valid PAN";
+                }
+        }  
+    } 
+
+      //numbers code
+      function code(){
+        let a=document.getElementById("value");
+            const b=a.value;
+            if(b==''||b==null)
+            {
+                alert("field is Required");
+            }
+            else
+            {
+                document.getElementById("Evencode").style.display="block"; 
+                document.getElementById("Oddcode").style.display="none"; 
+                document.getElementById("Primecode").style.display="none"; 
+            }
+      }
+      function code1(){
+          document.getElementById("Oddcode").style.display="block"; 
+        document.getElementById("Evencode").style.display="none"; 
+        document.getElementById("Primecode").style.display="none"; 
+      }
+      function code2(){
+          document.getElementById("Primecode").style.display="block"; 
+        document.getElementById("Evencode").style.display="none"; 
+        document.getElementById("Oddcode").style.display="none"; 
+        
+      }
+
+      //arrays code
+      function code3(){
+        document.getElementById("Reveresecode").style.display="block"; 
+        document.getElementById("Evencode").style.display="none"; 
+        document.getElementById("Oddcode").style.display="none"; 
+        document.getElementById("Primecode").style.display="none"; 
+        document.getElementById("Pancode").style.display="none";
+      }
+
+      //Strings code
+      function code6(){
+        document.getElementById("Pancode").style.display="block";
+          document.getElementById("Evencode").style.display="none"; 
+          document.getElementById("Oddcode").style.display="none"; 
+          document.getElementById("Primecode").style.display="none"; 
+          document.getElementById("Reveresecode").style.display="none"; 
+      }
+    </script>
+</body>
+</html>
